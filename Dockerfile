@@ -8,9 +8,11 @@ WORKDIR /var/www/html
 
 COPY . /var/www/html/
 
-# Keep uploaded images writable in the container. Note: Render's container
-# filesystem is ephemeral unless a persistent disk is configured.
-RUN chown -R www-data:www-data /var/www/html \
+# Create writable upload/image directories even when Git does not include
+# empty folders or the deployment repository omits these assets.
+RUN mkdir -p /var/www/html/images/users /var/www/html/uploads/instructors \
+    && chown -R www-data:www-data /var/www/html \
     && chmod -R u+rwX,g+rwX /var/www/html/images /var/www/html/uploads
 
 EXPOSE 80
+
