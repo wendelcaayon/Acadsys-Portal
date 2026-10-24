@@ -1,4 +1,8 @@
+
 Options -ExecCGI
+
+DirectoryIndex index.php
+
 <FilesMatch "\.(php|phtml|phar|php[0-9])$">
-    Require all denied
+    Require all granted
 </FilesMatch>
