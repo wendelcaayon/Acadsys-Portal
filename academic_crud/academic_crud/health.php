@@ -1,5 +1,0 @@
-<?php
-// Lightweight Render health-check endpoint; does not expose database details.
-http_response_code(200);
-header('Content-Type: text/plain; charset=utf-8');
-echo "OK";
