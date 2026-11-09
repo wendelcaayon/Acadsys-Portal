@@ -214,6 +214,7 @@ $editPhotoUrl = $editData ? photoUrl($editData['PHOTO'] ?? null, $uploadDir, $up
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Instructor Management</title>
     <link rel="stylesheet" href="style.css">
     <style>
