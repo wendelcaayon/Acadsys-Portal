@@ -17,7 +17,8 @@ if (empty($publicPage) && !canAccess($_SESSION['usertype'] ?? '', $currentScript
     ?>
     <!DOCTYPE html>
     <html>
-    <head><title>Access Denied</title><link rel="stylesheet" href="style.css"></head>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Access Denied</title><link rel="stylesheet" href="style.css"></head>
     <body>
     <div class="login-wrap"><div class="login-box">
         <h2>Access Denied</h2>
