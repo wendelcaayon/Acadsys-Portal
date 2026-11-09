@@ -383,78 +383,80 @@ tr:hover {
     opacity: 0.9;
 }
 
-/* Medium screens: brand + user on the first row, links on their own row */
-
+/* Medium screens */
 @media (max-width: 1100px) {
-    .topnav {
-        grid-template-columns: 1fr auto;
-        gap: 10px 16px;
-    }
-
-    .topnav-links {
-        grid-column: 1 / -1;
-        order: 3;
-        justify-content: flex-start;
-    }
+    .topnav { grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; }
+    .topnav-links { grid-column: 1 / -1; order: 3; justify-content: flex-start; }
 }
 
-/* Mobile */
-
+/* Mobile-first usability improvements */
 @media (max-width: 700px) {
-    .page-wrap {
-        padding: 15px;
-    }
-
-    .container {
-        padding: 20px;
-    }
-
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body { min-width: 320px; }
     .topnav {
-        padding: 10px 15px;
+        position: sticky; padding: 12px 14px 8px;
+        grid-template-columns: minmax(0, 1fr) auto; gap: 10px;
     }
-
+    .topnav .brand {
+        min-width: 0; font-size: 17px; line-height: 1.2; white-space: normal;
+    }
+    .topnav .brand span {
+        display: block; font-size: 11px; font-weight: 500; margin-top: 2px;
+    }
+    .nav-user { padding: 2px; background: transparent; }
+    .nav-user .avatar { width: 38px; height: 38px; border-width: 2px; }
+    .nav-user-text { display: none; }
     .topnav-links {
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        grid-column: 1 / -1; display: flex; flex-wrap: nowrap;
+        justify-content: flex-start; gap: 5px; width: calc(100vw - 28px);
+        overflow-x: auto; overflow-y: hidden; padding: 3px 0 7px;
+        scrollbar-width: thin; -webkit-overflow-scrolling: touch;
     }
-
-    .nav-user {
-        padding-right: 4px;
+    .topnav-links a {
+        flex: 0 0 auto; padding: 9px 12px; font-size: 13px; border-radius: 7px;
     }
-
-    .nav-user-text {
-        display: none;
+    .page-wrap { padding: 12px; }
+    .container {
+        width: 100%; max-width: none; padding: 18px 14px; border-radius: 10px;
     }
-
-    .form-grid {
-        grid-template-columns: 1fr;
+    h1 { font-size: 21px; line-height: 1.25; margin-bottom: 20px; }
+    h2 { font-size: 17px; margin-top: 22px; margin-bottom: 12px; }
+    h3 { font-size: 16px; }
+    .form-grid { grid-template-columns: minmax(0, 1fr); gap: 13px; }
+    .full { grid-column: 1; }
+    label { font-size: 13px; margin-bottom: 6px; }
+    input, select {
+        min-height: 44px; padding: 11px 12px; font-size: 16px;
     }
-
-    .full {
-        grid-column: span 1;
-    }
-
+    button, .btn { min-height: 42px; padding: 10px 14px; font-size: 14px; }
+    .actions { gap: 8px; }
+    .actions form { display: inline-flex; margin: 0; }
     .search-box {
-        flex-direction: column;
-        align-items: stretch;
+        display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 7px;
     }
-
-    .menu {
-        grid-template-columns: 1fr;
-    }
-
+    .search-box input { min-width: 0; grid-column: 1 / -1; }
+    .search-box button, .search-box .btn { text-align: center; }
+    /* Swipe tables horizontally rather than shrinking their columns. */
     table {
-        display: block;
-        overflow-x: auto;
+        display: block; width: 100%; min-width: 0; max-width: 100%;
+        overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 13px;
     }
-
+    th, td { padding: 10px 9px; white-space: nowrap; }
+    .menu { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    .menu a { padding: 16px; font-size: 15px; }
     .bottom-bar {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
+        flex-direction: column; align-items: stretch; gap: 12px;
+        text-align: center; margin-top: 22px; padding-top: 16px;
     }
-
-    .signed-in {
-        justify-content: center;
-    }
+    .signed-in { justify-content: center; font-size: 13px; }
+    .bottom-bar .avatar { width: 38px; height: 38px; }
+    .login-wrap { padding: 14px; }
+    .login-box { padding: 30px 20px; border-radius: 12px; }
+    .login-box h2 { font-size: 22px; }
+}
+@media (max-width: 360px) {
+    .page-wrap { padding: 8px; }
+    .container { padding: 15px 11px; }
+    .topnav { padding-left: 11px; padding-right: 11px; }
+    .topnav-links { width: calc(100vw - 22px); }
 }
