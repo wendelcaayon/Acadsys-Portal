@@ -162,6 +162,7 @@ $usertypes = $conn->query("SELECT * FROM tbl_usertype ORDER BY ID ASC");
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Users Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
